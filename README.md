@@ -1,5 +1,5 @@
 # UIActionSheet + Blocks.h
-Copyright (c) 2014 mervynokm. All rights reserved.
+Copyright (c) 2014 Mervyn Ong. All rights reserved.
 
 Simply put, this is a block-based soluation for UIActionSheet to avoid the need of using a delegate
 
