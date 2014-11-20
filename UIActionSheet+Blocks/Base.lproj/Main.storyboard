@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8dq-37-t4k">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="L6M-G2-MEF">
+            <objects>
+                <navigationController id="8dq-37-t4k" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ssh-1G-X01">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xp2-bN-j49" kind="relationship" relationship="rootViewController" id="1cY-Da-R4V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fx1-pN-fRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-8512" y="363"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CE3-6B-s0W">
+            <objects>
+                <viewController id="Xp2-bN-j49" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5RW-7A-taP"/>
+                        <viewControllerLayoutGuide type="bottom" id="7XP-fD-cXj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cEN-Ua-WXI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSI-eg-HNM">
+                                <rect key="frame" x="256" y="285" width="88" height="30"/>
+                                <state key="normal" title="Action Sheet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callActionSheet:" destination="Xp2-bN-j49" eventType="touchUpInside" id="daI-E6-VUl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="hSI-eg-HNM" secondAttribute="centerX" id="3Fx-bd-qpr"/>
+                            <constraint firstAttribute="centerY" secondItem="hSI-eg-HNM" secondAttribute="centerY" id="bhC-0w-niC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Pd-or-iCU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEu-OR-Aca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7834" y="363"/>
+        </scene>
+    </scenes>
+</document>
