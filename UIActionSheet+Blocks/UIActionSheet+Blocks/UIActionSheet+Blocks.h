@@ -29,52 +29,52 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^ActionSheetBlock)(UIActionSheet *actionSheet);
-typedef void(^CompletionBlock)(UIActionSheet *actionSheet, NSInteger buttonIndex);
+typedef void(^ActionSheetCompletionBlock)(UIActionSheet *actionSheet, NSInteger buttonIndex);
 
 @interface UIActionSheet (Blocks) <UIActionSheetDelegate>
 
 +(instancetype)showFromBarButtonItem:(UIBarButtonItem *)barButtonItem
-                    animated:(BOOL)animated
-         withCompletionBlock:(CompletionBlock)completion
-                    forTitle:(NSString *)title
-           cancelButtonTitle:(NSString *)cancelButtonTitle
-      destructiveButtonTitle:(NSString *)destructiveButtonTitle
-           otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+                            animated:(BOOL)animated
+                 withCompletionBlock:(ActionSheetCompletionBlock)completion
+                            forTitle:(NSString *)title
+                   cancelButtonTitle:(NSString *)cancelButtonTitle
+              destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                   otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 +(instancetype)showFromCGRect:(CGRect)rect
-               inView:(UIView *)view
-             animated:(BOOL)animated
-          withCompletionBlock:(CompletionBlock)completion
-             forTitle:(NSString *)title
-    cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-    otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+                       inView:(UIView *)view
+                     animated:(BOOL)animated
+          withCompletionBlock:(ActionSheetCompletionBlock)completion
+                     forTitle:(NSString *)title
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+       destructiveButtonTitle:(NSString *)destructiveButtonTitle
+            otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 +(instancetype)showFromTabBar:(UITabBar *)tabBar
-          withCompletionBlock:(CompletionBlock)completion
-             forTitle:(NSString *)title
-    cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-    otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+          withCompletionBlock:(ActionSheetCompletionBlock)completion
+                     forTitle:(NSString *)title
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+       destructiveButtonTitle:(NSString *)destructiveButtonTitle
+            otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 +(instancetype)showFromToolbar:(UIToolbar *)toolbar
-           withCompletionBlock:(CompletionBlock)completion
-              forTitle:(NSString *)title
-     cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-     otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+           withCompletionBlock:(ActionSheetCompletionBlock)completion
+                      forTitle:(NSString *)title
+             cancelButtonTitle:(NSString *)cancelButtonTitle
+        destructiveButtonTitle:(NSString *)destructiveButtonTitle
+             otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 +(instancetype)showInView:(UIView *)view
-      withCompletionBlock:(CompletionBlock)completion
-         forTitle:(NSString *)title
-cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+      withCompletionBlock:(ActionSheetCompletionBlock)completion
+                 forTitle:(NSString *)title
+        cancelButtonTitle:(NSString *)cancelButtonTitle
+   destructiveButtonTitle:(NSString *)destructiveButtonTitle
+        otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
-@property (nonatomic, copy) CompletionBlock completionBlock;
+@property (nonatomic, copy) ActionSheetCompletionBlock completionBlock;
 @property (nonatomic, copy) ActionSheetBlock willPresentBlock;
 @property (nonatomic, copy) ActionSheetBlock didPresentBlock;
-@property (nonatomic, copy) CompletionBlock willDismissBlock;
-@property (nonatomic, copy) CompletionBlock didDismissBlock;
+@property (nonatomic, copy) ActionSheetCompletionBlock willDismissBlock;
+@property (nonatomic, copy) ActionSheetCompletionBlock didDismissBlock;
 
 @end

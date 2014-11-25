@@ -41,7 +41,7 @@ static const char kActionSheetDidDismissBlock;
 
 #pragma mark - Private Class Methods
 
-+(instancetype)actionSheetWithCompletionBlock:(CompletionBlock)completion
++(instancetype)actionSheetWithCompletionBlock:(ActionSheetCompletionBlock)completion
                                      forTitle:(NSString *)title
                             cancelButtonTitle:(NSString *)cancelButtonTitle
                        destructiveButtonTitle:(NSString *)destructiveButtonTitle
@@ -64,12 +64,12 @@ static const char kActionSheetDidDismissBlock;
 #pragma mark - Public Class Methods
 
 +(instancetype)showFromBarButtonItem:(UIBarButtonItem *)barButtonItem
-                    animated:(BOOL)animated
-                 withCompletionBlock:(CompletionBlock)completion
-                    forTitle:(NSString *)title
-           cancelButtonTitle:(NSString *)cancelButtonTitle
-      destructiveButtonTitle:(NSString *)destructiveButtonTitle
-           otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+                            animated:(BOOL)animated
+                 withCompletionBlock:(ActionSheetCompletionBlock)completion
+                            forTitle:(NSString *)title
+                   cancelButtonTitle:(NSString *)cancelButtonTitle
+              destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                   otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
 {
     UIActionSheet *actionSheet = [UIActionSheet actionSheetWithCompletionBlock:completion
                                                                       forTitle:title
@@ -87,13 +87,13 @@ static const char kActionSheetDidDismissBlock;
 }
 
 +(instancetype)showFromCGRect:(CGRect)rect
-               inView:(UIView *)view
-             animated:(BOOL)animated
-          withCompletionBlock:(CompletionBlock)completion
-             forTitle:(NSString *)title
-    cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-    otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+                       inView:(UIView *)view
+                     animated:(BOOL)animated
+          withCompletionBlock:(ActionSheetCompletionBlock)completion
+                     forTitle:(NSString *)title
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+       destructiveButtonTitle:(NSString *)destructiveButtonTitle
+            otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
 {
     UIActionSheet *actionSheet = [UIActionSheet actionSheetWithCompletionBlock:completion
                                                                       forTitle:title
@@ -111,11 +111,11 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 }
 
 +(instancetype)showFromTabBar:(UITabBar *)tabBar
-          withCompletionBlock:(CompletionBlock)completion
-             forTitle:(NSString *)title
-    cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-    otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+          withCompletionBlock:(ActionSheetCompletionBlock)completion
+                     forTitle:(NSString *)title
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+       destructiveButtonTitle:(NSString *)destructiveButtonTitle
+            otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
 {
     UIActionSheet *actionSheet = [UIActionSheet actionSheetWithCompletionBlock:completion
                                                                       forTitle:title
@@ -133,11 +133,11 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 }
 
 +(instancetype)showFromToolbar:(UIToolbar *)toolbar
-           withCompletionBlock:(CompletionBlock)completion
-              forTitle:(NSString *)title
-     cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-     otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+           withCompletionBlock:(ActionSheetCompletionBlock)completion
+                      forTitle:(NSString *)title
+             cancelButtonTitle:(NSString *)cancelButtonTitle
+        destructiveButtonTitle:(NSString *)destructiveButtonTitle
+             otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
 {
     UIActionSheet *actionSheet = [UIActionSheet actionSheetWithCompletionBlock:completion
                                                                       forTitle:title
@@ -155,11 +155,11 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 }
 
 +(instancetype)showInView:(UIView *)view
-      withCompletionBlock:(CompletionBlock)completion
-         forTitle:(NSString *)title
-cancelButtonTitle:(NSString *)cancelButtonTitle
-destructiveButtonTitle:(NSString *)destructiveButtonTitle
-otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+      withCompletionBlock:(ActionSheetCompletionBlock)completion
+                 forTitle:(NSString *)title
+        cancelButtonTitle:(NSString *)cancelButtonTitle
+   destructiveButtonTitle:(NSString *)destructiveButtonTitle
+        otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
 {
     UIActionSheet *actionSheet = [UIActionSheet actionSheetWithCompletionBlock:completion
                                                                       forTitle:title
@@ -187,12 +187,12 @@ otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
     }
 }
 
--(CompletionBlock)completionBlock
+-(ActionSheetCompletionBlock)completionBlock
 {
     return objc_getAssociatedObject(self, &kActionSheetCompletionBlock);
 }
 
--(void)setCompletionBlock:(CompletionBlock)completionBlock
+-(void)setCompletionBlock:(ActionSheetCompletionBlock)completionBlock
 {
     [self checkDelegate];
     objc_setAssociatedObject(self, &kActionSheetCompletionBlock, completionBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -220,23 +220,23 @@ otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
     objc_setAssociatedObject(self, &kActionSheetDidPresentBlock, didPresentBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(CompletionBlock)willDismissBlock
+-(ActionSheetCompletionBlock)willDismissBlock
 {
     return objc_getAssociatedObject(self, &kActionSheetWillDismissBlock);
 }
 
--(void)setWillDismissBlock:(CompletionBlock)willDismissBlock
+-(void)setWillDismissBlock:(ActionSheetCompletionBlock)willDismissBlock
 {
     [self checkDelegate];
     objc_setAssociatedObject(self, &kActionSheetWillDismissBlock, willDismissBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(CompletionBlock)didDismissBlock
+-(ActionSheetCompletionBlock)didDismissBlock
 {
     return objc_getAssociatedObject(self, &kActionSheetDidDismissBlock);
 }
 
--(void)setDidDismissBlock:(CompletionBlock)didDismissBlock
+-(void)setDidDismissBlock:(ActionSheetCompletionBlock)didDismissBlock
 {
     [self checkDelegate];
     objc_setAssociatedObject(self, &kActionSheetDidDismissBlock, didDismissBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
